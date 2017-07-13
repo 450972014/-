@@ -1,0 +1,522 @@
+@import url(reset.css); //封装 宽高背景 属性
+.whb(@w, @h, @bg) {
+    width: @w;
+    height: @h;
+    background: @bg;
+}
+//封装弹性盒
+.box(@ver:horizontal) {
+    display: -webkit-box; //将父元素设置成弹性盒布局
+    -webkit-box-orient: @ver; //设置子元素的排列方式
+}
+@myblue: #4194f0; //背景颜色
+@fontcolor: #999999; //字体颜色
+.font10 {
+    //变形  ：缩放（比例）
+    transform: scale(10/12);
+    //缩放中心改为左上角
+    transform-origin: left top;
+    //行内元素变为块元素
+    display: block;
+}
+//设置根元素100%宽高
+html,
+body,
+.container {
+    .full;
+}
+.full {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+//以上为公共样式
+.container {
+    .box(vertical);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    //头部
+    .head {
+        .whb(100%,0.82rem,@myblue);
+        .box;
+        -webkit-box-align: center;
+        .shop-pic {
+            width: 0.38rem;
+            height: 0.33rem;
+            margin-left: 0.3rem;
+        }
+        .shop-txt {
+            -webkit-box-flex: 1;
+            margin-left: 0.42rem;
+            font-size: 0.28rem;
+            color: #fff;
+        }
+    }
+    //head
+    // 中部
+    .main::-webkit-scrollbar {
+        width: 0;
+    }
+    .main {
+        -webkit-box-flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .shop-head {
+            .box;
+            .whb(100%,1.26rem,@myblue);
+            .head-pic {
+                position: relative;
+                .img {
+                    width: 1.06rem;
+                    height: 1.06rem;
+                    margin: auto 0.2rem auto 0.3rem;
+                }
+            }
+            .banner {
+                width: 1.06rem;
+                height: 1.06rem;
+                margin: auto 0.2rem auto 0.3rem;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            .banner-two {
+                display: none;
+            }
+            .head-txt {
+                -webkit-box-flex: 1;
+                margin-top: 0.12rem; //              background: red;
+                .shop-tit {
+                    color: #fff;
+                    font-size: 0.22rem;
+                    .num {
+                        margin-left: 0.12rem;
+                    }
+                    .bar {
+                        img {
+                            width: 0.01rem;
+                            height: 0.2rem;
+                            margin: auto 0.1rem;
+                        }
+                    }
+                }
+            }
+            //星星图
+            .sign {
+                width: 0.35rem;
+                height: 0.35rem;
+                background: url("../img/shop-pic/star.png") no-repeat;
+                background-size: 0.35rem;
+                margin-right: 0.2rem;
+            }
+            .star {
+                width: 0.35rem;
+                height: 0.35rem;
+                background: url("../img/shop-pic/star-two.png") no-repeat;
+                background-size: 0.35rem;
+                margin-right: 0.2rem;
+            }
+        }
+        .shop-list {
+            .box;
+            .whb(100%,0.65rem,none);
+            border-bottom: 1px solid #cccccc;
+            -webkit-box-align: center;
+            .shop-nav {
+                display: block;
+                -webkit-box-flex: 1;
+                text-align: center;
+                height: 0.65rem;
+                line-height: 0.65rem;
+                font-size: 0.26rem;
+                color: #323232;
+                &:first-child {
+                    color: @myblue;
+                }
+            }
+            .one:hover,
+            .one:active {
+                color: @myblue;
+                border-bottom: 3px solid @myblue;
+            }
+            .two:hover,
+            .two:active {
+                color: @myblue;
+                border-bottom: 3px solid @myblue;
+            }
+            .three:hover,
+            .three:active {
+                color: @myblue;
+                border-bottom: 3px solid @myblue;
+            }
+        }
+        //装修
+        .fitment {
+            .whb(100%,8.17rem,none);
+            margin-top: 162/640*100%;
+            text-align: center;
+            .qiu {
+                margin: 0 auto;
+                img {
+                    width: 2.16rem;
+                    height: auto;
+                }
+            }
+            .character_1 {
+                font-size: 0.27rem;
+                a {
+                    color: #8a8a8a;
+                }
+            }
+        }
+        .middle {
+            .box;
+            .whb(100%,8.21rem,none);
+            .left-mid-nav {
+                .whb(1.36rem,8.21rem,#d8d8d8);
+                border-right: 1px solid #eeeeee;
+                .list-left-mid-nav {
+                    .item-left-mid-nav {
+                        border-bottom: 1px solid #eaeaea;
+                        font-size: 0.25rem;
+                        text-align: center;
+                        padding-top: 0.43rem;
+                        padding-bottom: 0.43rem;
+                        a {
+                            color: #666666;
+                        }
+                    }
+                    .item-left-mid-nav:hover,
+                    .item-left-mid-nav.active {
+                        background: #fff;
+                        .list-txt {
+                            color: #4094ec;
+                        }
+                    }
+                }
+            }
+            .right-mid {
+                -webkit-box-flex: 1;
+                .food-nav {
+                    .box;
+                    .whb(100%,0.64rem,#f5f5f5);
+                    border-left: 9px solid #d8d8d8;
+                    border-bottom: 1px solid #eeeeee;
+                    -webkit-box-align: center;
+                    .food {
+                        display: block;
+                        border: 1px solid #9e9e9e;
+                        border-radius: 0.17rem;
+                        width: 0.8rem;
+                        height: 0.42rem;
+                        line-height: 0.42rem;
+                        text-align: center;
+                        margin-left: 0.24rem;
+                        color: #999999;
+                        .food-shape {
+                            transform: scale(9/12);
+                        }
+                        //food-shape
+                    }
+                    //food
+                    //色调
+                    .food-hue:first-child {
+                        background: #4194f0;
+                        color: #fff;
+                    }
+                    //food-hue
+                }
+                //food-nav
+                .right-main {
+                    .whb(null,null,#fff);
+                    margin: auto 0.17rem auto 0.2rem;
+                    border-bottom: 1px solid #eeeeee;
+                    padding-bottom: 0.12rem;
+                    position: relative;
+                    //优惠
+                    .open-pic img {
+                        width: 0.58rem;
+                        position: absolute;
+                        left: -0.2rem;
+                        top: 0;
+                    }
+                    //十字
+                    .radius {
+                        position: absolute;
+                        right: 0.04rem;
+                        bottom: 0.44rem;
+                        border-radius: 50%;
+                        padding-top: 0.08rem;
+                        box-sizing: border-box;
+                        text-align: center;
+                        .whb(0.4rem,0.4rem,#acacac);
+                        .img {
+                            width: 0.24rem;
+                        }
+                        .two {
+                            color: #333333;
+                            font-size: 0.17rem;
+                            position: absolute;
+                            right: 0.8rem;
+                            top: 0.06rem;
+                        }
+                        .sign {
+                            width: 0.4rem;
+                            position: absolute;
+                            right: 1.12rem;
+                            top: 0;
+                        }
+                    }
+                    //十字背景
+                    .bgradius {
+                        background: @myblue;
+                    }
+                    .normal {
+                        bottom: 0.10rem;
+                    }
+                    .open {
+                        .box;
+                        padding-top: 0.2rem;
+                        margin-bottom: 0.11rem;
+                        .right-pic {
+                            .add-pic {
+                                width: 1.06rem;
+                                border: 1px solid #e1e3e6;
+                            }
+                            //售馨
+                            .sale {
+                                width: 0.88rem;
+                                margin-left: 0.1rem;
+                                padding-top: 0.1rem;
+                                box-sizing: border-box;
+                                position: absolute;
+                                left: 0;
+                                top: 0.22rem;
+                            }
+                        }
+                        .open-txt {
+                            margin-left: 0.2rem;
+                            .character {
+                                color: #333333;
+                                font-size: 0.24rem;
+                            }
+                            .repertory {
+                                color: #666666;
+                                font-size: font10;
+                            }
+                            .bank {
+                                .fontred {
+                                    color: #ff5a64;
+                                    font-size: 0.24rem;
+                                }
+                                .delete {
+                                    color: #c8c8c8;
+                                    font-size: 0.19rem;
+                                    text-decoration: line-through;
+                                }
+                            }
+                        }
+                    }
+                    //限时折扣
+                    .date {
+                        border: 1px solid #ff8c33;
+                        .date-tit {
+                            color: #ff8c33;
+                            padding: 0 0.05rem;
+                        }
+                        .time {
+                            color: #fff;
+                            background: #ff8c33;
+                            padding: 0 0.11rem;
+                        }
+                    }
+                }
+                //right-main
+            }
+            //right-mid
+        }
+        //middle
+        //底部
+        .footer {
+            z-index: 90;
+            .box;
+            .whb(100%,0.88rem,rgba(0,0,0,0.5));
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            .footer_4 {
+                img {
+                    width: 0.39rem;
+                }
+                position: absolute;
+                left: 0.9rem;
+                top: -0.3rem;
+            }
+            .base_132 {
+                img {
+                    width: 0.60rem;
+                }
+                position: absolute;
+                left: 0.80rem;
+                top: -0.32rem;
+            }
+            .vehicle {
+                display: block;
+                width: 1rem;
+                height: 1rem;
+                background: url(../img/shop-pic/vehicle.png)no-repeat;
+                background-size: 1rem;
+                margin-top: -0.32rem;
+                margin-left: 0.2rem;
+            }
+            .vehicle-cart {
+                display: block;
+                width: 1rem;
+                height: 1rem;
+                background: url(../img/shop-pic/cart_blue.png)no-repeat;
+                background-size: 1rem;
+                margin-top: -0.32rem;
+                margin-left: 0.2rem;
+            }
+            .pri {
+                -webkit-box-flex: 1;
+                color: #fff;
+                font-size: 0.23rem;
+                margin-top: 0.2rem;
+            }
+            .status {
+                .whb(2.3rem,0.88rem,#535558);
+                font-size: 0.3rem;
+                text-align: center;
+                line-height: 0.88rem;
+                a {
+                    color: #fff;
+                }
+            }
+            // 背景色
+            .bgcolor {
+                background: #ff8c50;
+            }
+        }
+        //footer
+        //灰底
+        .base {
+            .whb(100%,0.88rem,#434343);
+        }
+        //base
+    }
+    //main
+}
+//container
+//遮蔽层
+.shelter {
+    z-index: 100;
+    .whb(100%,100%,rgba(0,0,0,0.5));
+    //针对浏览器绝对
+    position: absolute;
+    left: 0;
+    top: 0; //  display: none;
+    .shelter-inner {
+        .whb(4.64rem,6.05rem,#fff);
+        //针对父元素绝对
+        position: absolute;
+        left: 50%;
+        margin-left: -4.64rem/2;
+        top: 50%;
+        margin-top: -6.05rem/2;
+        .close {
+            .whb(0.54rem,0.54rem,#fff);
+            background: url("../img/shop-pic/close.png") no-repeat;
+            background-size: 0.54rem;
+            position: absolute;
+            right: 0.1rem;
+            top: 0.1rem;
+        }
+        .big-pic {
+            .whb(4.19rem,4.81rem,none);
+            margin-left: 0.25rem;
+            img {
+                .full;
+            }
+        }
+        .big-txt {
+            color: #333333;
+            font-size: 0.22rem;
+            margin: auto 0.24rem;
+        }
+    }
+}
+//shelter
+//遮蔽层2
+.shelter_two {
+    .whb(100%,50%,rgba(0,0,0,0.5));
+    //针对浏览器绝对
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+//shelter_two
+//清空
+.empty {
+    .whb(100%,478/1140*100%,#fff);
+    //针对浏览器绝对
+    position: absolute;
+    left: 0;
+    top: 50%;
+    .empty-up {
+        .box;
+        .whb(100%,0.69rem,#eeeeee);
+        line-height: 0.69rem;
+        .up-em {
+            display: block;
+            -webkit-box-flex: 1;
+            margin-left: 0.21rem;
+            color: #333333;
+            font-size: 0.22rem;
+        }
+        .up-stop {
+            margin-right: 0.21rem;
+            color: #333333;
+            font-size: 0.22rem;
+        }
+    }
+    //empty-up
+    .check {
+        .whb(null,1.36rem,red);
+        border-bottom: 1px solid #ededed;
+        margin: auto 0.17rem auto 0.23rem;
+        .box;
+        -webkit-box-align: center;
+        input[type="radio"] {
+            display: none;
+            &+label {
+                margin-left: 0.2rem; //              margin-top: 0.49rem;
+                line-height: 1.36rem;
+                display: block;
+                width: 0.38rem;
+                height: 0.38rem;
+                background: url("../img/check-mark.png") no-repeat bottom;
+                background-size: 0.38rem auto;
+            }
+            &:checked+label {
+                background-position: 0 0;
+            }
+        }
+        //input
+        .check-pic {
+            width: 0.86rem;
+        }//check-pic
+        .check-icon{
+             line-height: 1.36rem;
+                display: block;
+        }//check-icon
+        .check-money{
+            display: block;
+        }//check-money
+        .check-absolu{
+            
+        }//check-absolu
+    }
+    //check
+}
+//empty
